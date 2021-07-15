@@ -31,10 +31,9 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addData(form) {
-    // this.dataSource.push([]);
-    // this.table.renderRows();
-    console.log(form);
+  addData(recibido: any) {
+    console.log('tabla');
+    // console.log(form);
   }
   
 }

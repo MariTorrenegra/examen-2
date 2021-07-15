@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
-import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -11,13 +10,10 @@ import { Output, EventEmitter } from '@angular/core';
 
 export class FormComponent implements OnInit {
 
-  // form: FormGroup;
-  // @Output() item = new EventEmitter<string>();
+  form: FormGroup;
+  @Output() item: EventEmitter<any> = new EventEmitter();
 
   arrayInput = new Array(FormGroup);
-  // console.log(arrayInput);
-
-  @Input() form: FormGroup
 
   constructor(
     public formBuilder: FormBuilder
@@ -41,14 +37,11 @@ export class FormComponent implements OnInit {
     if (this.form.valid) {
       const value = this.form.value;
       console.log(value);
+      this.item.emit(this.form.value);
+      console.log('works');
     } else {
       this.form.markAllAsTouched();
     }
-  }
-
-  clickSave(form: FormGroup) {
-    console.log('works');
-    // this.item.emit(form.value);
   }
 
   get emailField() {

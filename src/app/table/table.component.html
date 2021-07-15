@@ -1,4 +1,4 @@
-<!-- <table mat-table class="mat-elevation-z8">
+<table mat-table class="mat-elevation-z8">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> No. </th>
       <td mat-cell *matCellDef="let form"> {{form.position}} </td>
@@ -21,7 +21,7 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>  -->
-<div *ngFor="let form">
+</table> 
+<div>
   <app-form (item) = "addData($event)"></app-form>
 </div>
