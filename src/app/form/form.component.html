@@ -1,0 +1,40 @@
+<div class="formulario">
+    <form [formGroup]="form" (ngSubmit)="save($event)">
+    <h1 class="title">FORMULARIO</h1>
+    <p>
+      <label>Nombre</label> <br/>
+      <input type="text" class="input" formControlName="name">
+    </p>
+    <div *ngIf="form.get('name').errors && form.get('name').touched">
+        <p class="error-message" *ngIf="form.get('name').hasError('required')">
+          Es un campo requerido
+        </p>
+    </div>
+    <p>
+      <label>Email</label> <br/>
+      <input type="email" class="input" formControlName="email">
+    </p>
+    <div *ngIf="emailField.errors && emailField.touched">
+        <p class="error-message" *ngIf="emailField.hasError('required')">
+          Es un campo requerido
+        </p>
+        <p class="error-message" *ngIf="emailField.hasError('email')">
+            No es un Email valido
+          </p>
+    </div>
+    <p>
+      <label>Mensaje</label> <br/>
+      <textarea class="input" cols="30" rows="10" formControlName="text"></textarea>
+      {{ textField.value.length }}/100
+    </p>
+    <div *ngIf="textField.errors && textField.touched">
+        <p class="error-message" *ngIf="textField.hasError('required')">
+          Es un campo requerido
+        </p>
+        <p class="error-message" *ngIf="textField.hasError('maxlength')">
+          Te pasaste, máximo deben haber 100 caracteres.
+        </p>
+    </div>
+    <button class="button" type="submit" [disabled]="form.invalid" (click)="clickSave(form)">Guardar</button>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+<!-- <table mat-table class="mat-elevation-z8">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let form"> {{form.position}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let form"> {{form.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let form"> {{form.email}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Mensaje </th>
+      <td mat-cell *matCellDef="let form"> {{form.text}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>  -->
+<div *ngFor="let form">
+  <app-form (item) = "addData($event)"></app-form>
+</div>
